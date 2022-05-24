@@ -1,0 +1,6 @@
+export const SEARCH_WEATHER = 'SEARCH_WEATHER'
+export const REFRESH_WEATHER = 'REFRESH_WEATHER'
+export const GET_WEATHER = 'GET_WEATHER'
+export const CHANGE_ADDRESS = 'CHANGE_ADDRESS'
+export const SET_ERROR = 'SET_ERROR'
+export const SET_COORDS = 'SET_COORDS'
