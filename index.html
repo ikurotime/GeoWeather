@@ -5,18 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <script>
+      window.myCallbackFunc = function () {
+        window.initOne && window.initOne()
+      }
+    </script>
     <script
-      async
+      defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9792weT6nDvmOoMjmagr7ybocOXLd6dU&language=en&components=locality&libraries=places&callback=myCallbackFunc"
     ></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      window.myCallbackFunc = function () {
-        window.initOne && window.initOne()
-      }
-    </script>
   </body>
 </html>
