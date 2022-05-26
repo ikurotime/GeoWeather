@@ -1,12 +1,18 @@
-export default function TempsData({ temp }) {
+import { WeatherContext } from '../context/WeatherContextProvider'
+import { useContext } from 'react'
+
+export default function TempsData({ temp, max }) {
+  const { degreeType } = useContext(WeatherContext)
   return (
     <div className='flex items-center gap-3'>
-      <h2 className='text-xl '>{temp}°C</h2>
+      <h2 className='text-xl '>
+        {temp}º{degreeType}
+      </h2>
       <div className='flex'>
         <img className='w-5 h-5' src='./src/img/Temp.png' alt='Max temp' />
         <img
           className='w-5 h-5 aspect-square'
-          src='./src/img/DownArrow.png'
+          src={`./src/img/${max ? 'UpArrow' : 'DownArrow'}.png`}
           alt='Max temp'
         />
       </div>

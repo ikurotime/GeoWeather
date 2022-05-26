@@ -26,7 +26,7 @@ export default function SearchBar() {
                   'w-full h-10 p-3 mt-5 border rounded border-cardGray place-self-end'
               })}
             />
-            <div className='absolute max-w-xs p-3 bg-white border rounded top-15 h-fit empty:hidden border-cardGray place-self-start'>
+            <div className='absolute z-10 max-w-xs p-3 bg-white border rounded top-15 h-fit empty:hidden border-cardGray place-self-start'>
               {loading && ''}
               {suggestions.map((suggestion) => {
                 const className = suggestion.active
