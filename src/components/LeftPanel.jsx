@@ -12,8 +12,7 @@ import locationImage from '../img/location.png'
 export default function LeftPanel() {
   const [active, setActive] = useState(0)
 
-  const { getWeather, location, address, forecast, current } =
-    useContext(WeatherContext)
+  const { getWeather, location, address } = useContext(WeatherContext)
 
   const { localtime } = location || {}
   useEffect(() => {
@@ -29,7 +28,8 @@ export default function LeftPanel() {
   const date = `${DAY[weekday] + ', ' + currentDate}`
 
   return (
-    <div className='container'>
+    <div className='container max-w-5xl'>
+      <WelcomeMessage />
       <div className='grid items-start w-full grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1 sm:items-center'>
         <div>
           <h2 className='text-xl font-bold'>Local time:</h2>
@@ -45,12 +45,11 @@ export default function LeftPanel() {
           </div>
         </div>
       </div>
-      <WelcomeMessage />
       <h2 className='my-5 text-3xl'>Current Day</h2>
-      <CurrentDayCard day={current} />
+      <CurrentDayCard />
       <h2 className='my-5 text-3xl'>Forecast</h2>
       <ForecastCards active={active} setActive={setActive} />
-      <ForecastDayCard day={forecast?.forecastday?.[active]} />
+      <ForecastDayCard active={active} />
     </div>
   )
 }

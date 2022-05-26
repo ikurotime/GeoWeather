@@ -6,14 +6,14 @@ import WindHumData from './WindHumData'
 import { useContext } from 'react'
 
 export default function ForecastCards({ active, setActive }) {
-  const { forecast } = useContext(WeatherContext)
+  const { forecast, degreeType } = useContext(WeatherContext)
 
   return (
     <div className='grid grid-cols-1 grid-rows-3 gap-3 my-3 md:grid-cols-3 md:grid-rows-1 '>
       {forecast?.forecastday?.map((day, index) => (
         <div
           key={day.date_epoch}
-          className={`border-[3px] bg-white h-44 w-full grid grid-cols-3 grid-rows-2 justify-center items-center p-6 cursor-pointer ${
+          className={`border-[3px] bg-white h-44 w-full grid grid-cols-4 grid-rows-2 justify-center items-center p-6 cursor-pointer ${
             active === index ? 'border-black' : 'border-cardGray'
           }`}
           onClick={() => setActive(index)}
@@ -23,6 +23,7 @@ export default function ForecastCards({ active, setActive }) {
             <h3 className='text-xl text-gray-500'>{day.day.condition.text}</h3>
           </div>
           <img
+            className='col-start-4'
             src={'./src/img/' + WEATHER_CODES[day.day.condition.code][0]}
             alt='Location'
             width={70}
@@ -33,9 +34,14 @@ export default function ForecastCards({ active, setActive }) {
             <WindHumData src='wind' text='km/h' data={day.day.maxwind_kph} />
             <WindHumData src='humidity' text='%' data={day.day.avghumidity} />
           </div>
-          <div className='flex flex-col mt-4 place-items-end'>
-            <TempsData temp={day.day.maxtemp_c} />
-            <TempsData temp={day.day.mintemp_c} />
+          <div className='flex flex-col col-span-2 mt-4 place-items-end'>
+            <TempsData
+              temp={degreeType === 'C' ? day.day.maxtemp_c : day.day.maxtemp_f}
+              max
+            />
+            <TempsData
+              temp={degreeType === 'C' ? day.day.mintemp_c : day.day.mintemp_f}
+            />
           </div>
         </div>
       )) || <div>Loading...</div>}
