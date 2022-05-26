@@ -24,7 +24,7 @@ function Map({ className }) {
       center={center}
       zoom={10}
       onClick={handleClick}
-    ></GoogleMap>
+    />
   )
 }
 

@@ -10,7 +10,10 @@ export default function ForecastCards({ active, setActive }) {
   const { forecast, degreeType } = useContext(WeatherContext)
 
   return (
-    <div className='grid grid-cols-1 grid-rows-3 gap-3 my-3 md:grid-cols-2 lg:grid-cols-3 md:grid-rows-1 '>
+    <div
+      className='grid grid-cols-1 grid-rows-3 gap-3 my-3 md:grid-cols-2 lg:grid-cols-3 md:grid-rows-1 delay-500 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
+      data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" } '
+    >
       {forecast?.forecastday?.map((day, index) => (
         <div
           key={day.date_epoch}

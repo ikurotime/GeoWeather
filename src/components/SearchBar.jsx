@@ -7,7 +7,7 @@ export default function SearchBar() {
   const [input, setInput] = useState('')
   const { searchWeather } = useContext(WeatherContext)
   return (
-    <form className='relative grid grid-cols-2 '>
+    <form className=' grid grid-cols-2 '>
       <PlacesAutocomplete
         onChange={(address) => setInput(address)}
         value={input}
@@ -18,7 +18,7 @@ export default function SearchBar() {
         googleCallbackName='initOne'
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div className='relative w-full col-span-3 md:col-end-4 md:col-span-2'>
+          <div className=' w-full col-span-3 md:col-end-4 md:col-span-2'>
             <input
               {...getInputProps({
                 placeholder: 'Search Places ...',
