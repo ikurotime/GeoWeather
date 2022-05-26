@@ -1,7 +1,9 @@
 import { DAY, WEATHER_CODES } from './Const'
 import { useContext, useEffect, useState } from 'react'
 
-import LineGraph from 'react-line-graph'
+import Img from './Img'
+import Temp from '../img/Temp.png'
+// import LineGraph from 'react-line-graph'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import WindHumData from './WindHumData'
 
@@ -10,6 +12,7 @@ export default function ForecastDayCard({ active }) {
   const day = forecast?.forecastday?.[active]
   const [degrees, setDegrees] = useState([0, 0])
   const [data, setData] = useState([])
+
   useEffect(() => {
     setData([])
     day?.hour?.forEach((day, index) => {
@@ -48,10 +51,9 @@ export default function ForecastDayCard({ active }) {
           </h3>
         </div>
         <div className='col-span-1 col-start-3 '></div>
-        <img
+        <Img
           className='mt-5 place-self-end'
           src={
-            './src/img/' +
             WEATHER_CODES[day?.day?.condition?.code]?.[
               (day?.day?.condition?.code === 1000 && day?.day?.is_day) === 0
                 ? 1
@@ -71,11 +73,11 @@ export default function ForecastDayCard({ active }) {
           </p>
           <div className='absolute w-full overflow-hidden text-center bottom-2'></div>
 
-          <LineGraph {...props}>
+          {/*  <LineGraph {...props}>
             <p>{degrees}</p>
-          </LineGraph>
+          </LineGraph> */}
         </div>
-        <div className='col-span-2 gap-3 '>
+        <div className='col-span-3 gap-3 '>
           <WindHumData
             src='wind'
             title='Max Wind: '
@@ -91,17 +93,13 @@ export default function ForecastDayCard({ active }) {
           />
         </div>
         <div className='flex flex-col col-start-4 mt-4 place-items-end'>
-          <div className='flex items-center '>
-            <h2 className='col-span-2 text-4xl font-bold sm:text-5xl'>
+          <div className='flex items-center flex-col-reverse sm:flex-row'>
+            <h2 className='col-span-2 text-2xl font-bold sm:text-3xl lg:text-4xl'>
               {degreeType === 'C'
                 ? day?.day?.avgtemp_c + '°C'
                 : day?.day?.avgtemp_f + '°F'}
             </h2>
-            <img
-              className='w-12 h-12'
-              src='./src/img/Temp.png'
-              alt='Max temp'
-            />
+            <img className='w-12 h-12' src={Temp} alt='Max temp' />
           </div>
         </div>
       </div>

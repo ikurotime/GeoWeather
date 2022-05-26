@@ -1,8 +1,10 @@
 import { DAY, WEATHER_CODES } from './Const'
 import { useContext, useEffect, useState } from 'react'
 
-import LineGraph from 'react-line-graph'
+import Img from './Img'
+// import LineGraph from 'react-line-graph'
 import Map from './Map'
+import Temp from '../img/Temp.png'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import WindHumData from './WindHumData'
 
@@ -50,10 +52,9 @@ export default function CurrentDayCard() {
           </h3>
         </div>
         <div className='col-span-1 col-start-3 '></div>
-        <img
+        <Img
           className='mt-5 place-self-end'
           src={
-            './src/img/' +
             WEATHER_CODES[current.condition?.code]?.[
               (current?.condition?.code === 1000 && current?.is_day) === 0
                 ? 1
@@ -73,9 +74,9 @@ export default function CurrentDayCard() {
           </p>
           <div className='absolute w-full overflow-hidden text-center bottom-2'></div>
 
-          <LineGraph {...props}>
+          {/*           <LineGraph {...props}>
             <p>{degrees}</p>
-          </LineGraph>
+          </LineGraph> */}
         </div>
         <div className='col-span-2 gap-3 '>
           <WindHumData
@@ -106,17 +107,13 @@ export default function CurrentDayCard() {
           />
         </div>
         <div className='flex flex-col col-start-4 mt-4 place-items-end'>
-          <div className='flex items-center '>
-            <h2 className='col-span-2 text-4xl font-bold sm:text-5xl'>
+          <div className='flex items-center flex-col-reverse sm:flex-row'>
+            <h2 className='col-span-2 text-2xl md:text-4xl font-bold sm:text-5xl'>
               {degreeType === 'C'
                 ? current.temp_c + 'ºC'
                 : current.temp_f + 'ºF'}
             </h2>
-            <img
-              className='w-12 h-12'
-              src='./src/img/Temp.png'
-              alt='Max temp'
-            />
+            <img className='w-12 h-12' src={Temp} alt='Max temp' />
           </div>
         </div>
       </div>
