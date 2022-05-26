@@ -1,5 +1,6 @@
 import {
   CHANGE_ADDRESS,
+  CHANGE_DEGREES,
   GET_WEATHER,
   REFRESH_WEATHER,
   SEARCH_WEATHER,
@@ -37,6 +38,11 @@ export default function WeatherReducer(state, action) {
       return {
         ...state,
         error: action.payload
+      }
+    case CHANGE_DEGREES:
+      return {
+        ...state,
+        degreeType: action.payload
       }
 
     default:

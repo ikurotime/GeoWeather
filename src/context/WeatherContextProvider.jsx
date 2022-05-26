@@ -10,7 +10,8 @@ const initialState = {
   forecast: {},
   location: {},
   address: '',
-  initialCords: {}
+  initialCords: {},
+  degreeType: 'C'
 }
 
 export default function WeatherContextProvider(props) {
@@ -73,6 +74,39 @@ export default function WeatherContextProvider(props) {
       console.log(err)
     }
   }
+  const searchWeatherByLatLng = ({ lat, lng }) => {
+    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${lat}%2C${lng}&days=3`
+    try {
+      fetch(url, OPTIONS)
+        .then((res) => {
+          if (!res.ok) {
+            res.json().then((data) => {
+              dispatch({
+                type: 'SET_ERROR',
+                payload: data.error.message
+              })
+            })
+            throw new Error(res.statusText)
+          } else {
+            return res.json()
+          }
+        })
+        .then((data) => {
+          dispatch({
+            type: 'SEARCH_WEATHER',
+            payload: data
+          })
+          const { location } = data
+          const { name, region, country } = location
+          dispatch({
+            type: 'CHANGE_ADDRESS',
+            payload: `${name}, ${region}, ${country}`
+          })
+        })
+    } catch (err) {
+      console.log(err)
+    }
+  }
   const refreshWeather = ({ address }) => {
     console.log('refreshWeather', address)
 
@@ -90,6 +124,12 @@ export default function WeatherContextProvider(props) {
       console.log(err)
     }
   }
+  const changeDegreeType = (degreeType) => {
+    dispatch({
+      type: 'CHANGE_DEGREES',
+      payload: degreeType
+    })
+  }
   return (
     <WeatherContext.Provider
       value={{
@@ -98,9 +138,12 @@ export default function WeatherContextProvider(props) {
         location: state.location,
         address: state.address,
         error: state.error,
+        degreeType: state.degreeType,
         getWeather,
         searchWeather,
-        refreshWeather
+        refreshWeather,
+        searchWeatherByLatLng,
+        changeDegreeType
       }}
     >
       {props.children}
