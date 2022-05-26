@@ -21,6 +21,7 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'multiline-ternary': 'off'
   }
 }
