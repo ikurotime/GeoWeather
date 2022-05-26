@@ -1,44 +1,15 @@
 import { DAY, WEATHER_CODES } from './Const'
-import { useContext, useEffect, useState } from 'react'
 
+import CurrentDayChart from './CurrentDayChart'
 import Img from './Img'
-// import LineGraph from 'react-line-graph'
 import Map from './Map'
 import Temp from '../img/Temp.png'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import WindHumData from './WindHumData'
+import { useContext } from 'react'
 
 export default function CurrentDayCard() {
-  const { degreeType, current, forecast } = useContext(WeatherContext)
-
-  const [degrees, setDegrees] = useState([0, 0])
-  const [data, setData] = useState([])
-  useEffect(() => {
-    setData([])
-    forecast?.forecastday?.[0]?.hour?.forEach((day, index) => {
-      setData((prev) => [
-        ...prev,
-        {
-          x: index,
-          y: degreeType === 'C' ? day.temp_c : day.temp_f
-        }
-      ])
-    })
-  }, [forecast, degreeType])
-
-  const props = {
-    data,
-    smoothing: 1,
-    accent: '#EAC435',
-    fillBelow: 'rgba(234, 196, 53,0.1)',
-    hover: true,
-    compression: 0.1,
-    onHover: (n) => {
-      if (n !== degrees) {
-        setDegrees(n)
-      }
-    }
-  }
+  const { current, degreeType } = useContext(WeatherContext)
 
   return (
     <div className='grid grid-cols-1 bg-white gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 border-cardGray'>
@@ -51,9 +22,8 @@ export default function CurrentDayCard() {
             {current.condition?.text}
           </h3>
         </div>
-        <div className='col-span-1 col-start-3 '></div>
         <Img
-          className='mt-5 place-self-end'
+          className='col-start-4 mt-5 place-self-end'
           src={
             WEATHER_CODES[current.condition?.code]?.[
               (current?.condition?.code === 1000 && current?.is_day) === 0
@@ -65,20 +35,8 @@ export default function CurrentDayCard() {
           width={90}
           height={90}
         />
-        <div className='absolute self-end w-full col-span-3 row-span-2 border-t-2 h-2/5'>
-          <p className='absolute text-gray-500 top-2 left-5'>
-            Temp: {degrees[1]}º{degreeType}
-          </p>
-          <p className='absolute text-gray-500 top-8 left-5'>
-            Hour: {degrees[0]}h
-          </p>
-          <div className='absolute w-full overflow-hidden text-center bottom-2'></div>
-
-          {/*           <LineGraph {...props}>
-            <p>{degrees}</p>
-          </LineGraph> */}
-        </div>
-        <div className='col-span-2 gap-3 '>
+        <CurrentDayChart />
+        <div className='row-start-2 col-span-2 gap-3 '>
           <WindHumData
             src='wind'
             title='Wind: '
