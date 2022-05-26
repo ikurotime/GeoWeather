@@ -1,12 +1,13 @@
-import { DAY, MONTHS } from './Const'
+import { DAY, MONTHS } from '../components/Const'
 
 import { WeatherContext } from '../context/WeatherContextProvider'
 import { useContext } from 'react'
 
-export default function Date() {
+const useDate = () => {
   const { location } = useContext(WeatherContext)
+
   const { localtime } = location || {}
-  // const time = localtime?.slice(-5)
+  const time = localtime?.slice(-5)
   const month = localtime?.slice(5, 7)
   const day = localtime?.slice(8, 10)
   const year = localtime?.slice(0, 4)
@@ -14,5 +15,7 @@ export default function Date() {
   const weekday = new Date(currentDate).getDay()
 
   const date = `${DAY[weekday] + ', ' + currentDate}`
-  return date
+  return { time, date }
 }
+
+export default useDate
