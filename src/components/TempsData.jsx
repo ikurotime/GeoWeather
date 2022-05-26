@@ -1,3 +1,6 @@
+import DownArrow from '../img/DownArrow.png'
+import Temp from '../img/Temp.png'
+import UpArrow from '../img/UpArrow.png'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import { useContext } from 'react'
 
@@ -9,12 +12,16 @@ export default function TempsData({ temp, max }) {
         {temp}º{degreeType}
       </h2>
       <div className='flex'>
-        <img className='w-5 h-5' src='./src/img/Temp.png' alt='Max temp' />
-        <img
-          className='w-5 h-5 aspect-square'
-          src={`./src/img/${max ? 'UpArrow' : 'DownArrow'}.png`}
-          alt='Max temp'
-        />
+        <img className='w-5 h-5' src={Temp} alt='Max temp' />
+        {max ? (
+          <img className='w-5 h-5 aspect-square' src={UpArrow} alt='Max temp' />
+        ) : (
+          <img
+            className='w-5 h-5 aspect-square'
+            src={DownArrow}
+            alt='min temp'
+          />
+        )}
       </div>
     </div>
   )

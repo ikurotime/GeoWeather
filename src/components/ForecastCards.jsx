@@ -1,5 +1,6 @@
 import { DAY, WEATHER_CODES } from './Const'
 
+import Img from './Img'
 import TempsData from './TempsData'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import WindHumData from './WindHumData'
@@ -9,7 +10,7 @@ export default function ForecastCards({ active, setActive }) {
   const { forecast, degreeType } = useContext(WeatherContext)
 
   return (
-    <div className='grid grid-cols-1 grid-rows-3 gap-3 my-3 md:grid-cols-3 md:grid-rows-1 '>
+    <div className='grid grid-cols-1 grid-rows-3 gap-3 my-3 md:grid-cols-2 lg:grid-cols-3 md:grid-rows-1 '>
       {forecast?.forecastday?.map((day, index) => (
         <div
           key={day.date_epoch}
@@ -22,9 +23,9 @@ export default function ForecastCards({ active, setActive }) {
             <h3 className='text-xl '>{DAY[new Date(day.date).getDay()]}</h3>
             <h3 className='text-xl text-gray-500'>{day.day.condition.text}</h3>
           </div>
-          <img
-            className='col-start-4'
-            src={'./src/img/' + WEATHER_CODES[day.day.condition.code][0]}
+          <Img
+            className='col-start-4 place-self-end'
+            src={WEATHER_CODES[day.day.condition.code][0]}
             alt='Location'
             width={70}
             height={70}
