@@ -56,7 +56,7 @@ export default function CurrentDayChart() {
   }
 
   return (
-    <div className='chart-container col-span-4 row-start-3  row-span-2'>
+    <div className='relative chart-container col-span-4 row-start-3  row-span-2'>
       <Line options={options} data={data2} />
     </div>
   )

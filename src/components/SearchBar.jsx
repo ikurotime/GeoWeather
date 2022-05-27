@@ -7,7 +7,7 @@ export default function SearchBar() {
   const [input, setInput] = useState('')
   const { searchWeather } = useContext(WeatherContext)
   return (
-    <form className=' grid grid-cols-2 '>
+    <form className='relative z-10 grid grid-cols-2 '>
       <PlacesAutocomplete
         onChange={(address) => setInput(address)}
         value={input}
@@ -26,7 +26,7 @@ export default function SearchBar() {
                   'w-full h-10 p-3 mt-5 border rounded border-cardGray place-self-end'
               })}
             />
-            <div className='absolute z-10 max-w-xs p-3 bg-white border rounded top-15 h-fit empty:hidden border-cardGray place-self-start'>
+            <div className='absolute z-50 max-w-xs p-3 bg-white border rounded top-15 h-fit empty:hidden border-cardGray place-self-start'>
               {loading && ''}
               {suggestions.map((suggestion) => {
                 const className = suggestion.active

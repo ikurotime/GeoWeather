@@ -13,7 +13,7 @@ export default function CurrentDayCard() {
 
   return (
     <div
-      className='relative -z-10 grid grid-cols-1 bg-white gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 border-cardGray delay-200 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
+      className='relative z-0 grid grid-cols-1 bg-white gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 border-cardGray delay-200 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
       data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
     >
       <div className='relative border-[3px] col-span-2 h-96 w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>

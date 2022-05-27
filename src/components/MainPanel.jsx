@@ -23,7 +23,7 @@ export default function MainPanel() {
       <div className='container max-w-5xl'>
         <WelcomeMessage />
         <div
-          className=' grid items-start w-full grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1 sm:items-center delay-150 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
+          className='relative z-20 grid items-start w-full grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1 sm:items-center delay-150 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
           data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
         >
           <div>
@@ -32,7 +32,7 @@ export default function MainPanel() {
             <h2 className='col-span-2 text-2xl'>{date || ''} </h2>
           </div>
 
-          <div className=' w-full col-span-1 gap-3 text-left md:col-span-2'>
+          <div className='w-full col-span-1 gap-3 text-left md:col-span-2'>
             <SearchBar />
             <div className='flex items-center justify-end w-full my-3'>
               <img src={locationImage} alt='Location' width={25} height={25} />
