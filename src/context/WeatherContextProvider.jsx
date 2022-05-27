@@ -8,7 +8,9 @@ const initialState = {
   error: '',
   current: {},
   forecast: {},
-  location: {},
+  location: {
+    localtime: ''
+  },
   address: '',
   initialCords: {},
   degreeType: 'C'
