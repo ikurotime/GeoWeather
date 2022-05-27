@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from 'react'
 import ForecastDayChart from './ForecastDayChart'
 import Img from './Img'
 import Temp from '../img/Temp.png'
-// import LineGraph from 'react-line-graph'
 import { WeatherContext } from '../context/WeatherContextProvider'
 import WindHumData from './WindHumData'
 
@@ -29,15 +28,15 @@ export default function ForecastDayCard({ active }) {
 
   return (
     <div
-      className='grid grid-cols-1 mb-10 bg-white gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 border-cardGray delay-500 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
+      className='grid grid-cols-1 mb-10 bg-white  dark:bg-slate-700 gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 delay-300 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
       data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
     >
-      <div className='relative border-[3px] col-span-3 h-96 w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>
+      <div className='relative border-[3px] border-cardGray  dark:border-slate-900 col-span-3 h-96 w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>
         <div className='col-start-1 row-start-1'>
-          <h3 className='mt-10 text-3xl place-self-start'>
+          <h3 className='mt-10 text-3xl place-self-start dark:text-gray-100'>
             {DAY[new Date(day?.date).getDay()]}
           </h3>
-          <h3 className='mb-6 text-xl text-gray-500'>
+          <h3 className='mb-6 text-xl text-gray-500 dark:text-cardGray'>
             {day?.day?.condition?.text}
           </h3>
         </div>
@@ -73,7 +72,7 @@ export default function ForecastDayCard({ active }) {
         </div>
         <div className='flex flex-col col-start-4 mt-4 place-items-end'>
           <div className='flex items-center flex-col-reverse sm:flex-row'>
-            <h2 className='col-span-2 text-2xl font-bold sm:text-3xl lg:text-4xl'>
+            <h2 className='col-span-2 text-2xl font-bold sm:text-3xl lg:text-4xl dark:text-gray-100'>
               {degreeType === 'C'
                 ? day?.day?.avgtemp_c + '°C'
                 : day?.day?.avgtemp_f + '°F'}

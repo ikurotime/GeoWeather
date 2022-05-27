@@ -8,7 +8,7 @@ export default function WelcomeMessage() {
       <img src={sunImage} alt='Location' width={80} height={80} />
 
       <h1
-        className='text-5xl text-[#40396E] font-bold '
+        className='text-5xl text-[#40396E] dark:text-gray-100 font-bold '
         data-for='sun'
         data-tip
       >

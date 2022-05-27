@@ -17,28 +17,20 @@ export default function Header() {
   }
 
   return (
-    <div className='flex justify-around w-full p-5 bg-gray-900 items-center'>
-      <h1 className='text-2xl font-bold text-white lg:col-start-2'>
-        GeoWeather
-      </h1>
+    <div className='flex justify-around w-full p-5 text-gray-700 dark:text-white bg-gray-100 dark:bg-gray-900 items-center'>
+      <h1 className='text-2xl font-bold lg:col-start-2'>GeoWeather</h1>
       <div className='flex gap-1 text-base'>
         <button
-          className={
-            degree === 'C'
-              ? 'text-yellow-500 font-bold'
-              : 'text-white font-bold'
-          }
+          className={degree === 'C' ? 'text-yellow-500 font-bold' : 'font-bold'}
           type='button'
           onClick={() => changeDegree()}
         >
           Cº
         </button>
-        <span className='text-white font-bold'>/</span>
+        <span className='font-bold'>/</span>
         <button
           className={
-            degree === 'F'
-              ? 'text-yellow-500 font-bold'
-              : 'text-white font-bold'
+            degree === 'F' ? 'text-yellow-500 font-bold' : ' font-bold'
           }
           type='button'
           onClick={() => changeDegree()}

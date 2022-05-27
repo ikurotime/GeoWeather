@@ -10,7 +10,7 @@ export default function WindHumData({ src, data, text, title }) {
         width={24}
         height={24}
       />
-      <h3 className='text-base text-gray-500'>
+      <h3 className='text-base text-gray-500 dark:text-gray-100'>
         {title}
         {data} {text}
       </h3>

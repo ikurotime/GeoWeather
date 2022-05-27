@@ -1,12 +1,3 @@
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  LineElement,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip
-} from 'chart.js'
 import { useContext, useEffect, useState } from 'react'
 
 import { LABELS } from './Const'
@@ -23,14 +14,6 @@ export default function CurrentDayChart() {
       setData((prev) => [...prev, degreeType === 'C' ? day.temp_c : day.temp_f])
     })
   }, [forecast, degreeType])
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip
-  )
 
   const data2 = {
     labels: LABELS,
@@ -50,13 +33,25 @@ export default function CurrentDayChart() {
     plugins: {
       legend: {
         position: 'top',
-        display: false
+        display: true
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: 'gray'
+        }
+      },
+      y: {
+        ticks: {
+          color: 'gray'
+        }
       }
     }
   }
 
   return (
-    <div className='relative chart-container col-span-4 row-start-3  row-span-2'>
+    <div className='relative chart-container col-span-4 row-start-3 row-span-2'>
       <Line options={options} data={data2} />
     </div>
   )

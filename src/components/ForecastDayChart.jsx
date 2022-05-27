@@ -1,26 +1,7 @@
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  LineElement,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip
-} from 'chart.js'
-
 import { LABELS } from './Const'
 import { Line } from 'react-chartjs-2'
 
 export default function ForecastDayChart({ data }) {
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip
-  )
-
   const data2 = {
     labels: LABELS,
     datasets: [
@@ -40,6 +21,18 @@ export default function ForecastDayChart({ data }) {
       legend: {
         position: 'top',
         display: false
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: 'gray'
+        }
+      },
+      y: {
+        ticks: {
+          color: 'gray'
+        }
       }
     }
   }

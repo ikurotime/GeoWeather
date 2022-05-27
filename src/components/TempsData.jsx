@@ -8,7 +8,7 @@ export default function TempsData({ temp, max }) {
   const { degreeType } = useContext(WeatherContext)
   return (
     <div className='flex items-center gap-3'>
-      <h2 className='text-xl '>
+      <h2 className='text-xl dark:text-gray-100'>
         {temp}º{degreeType}
       </h2>
       <div className='flex'>
