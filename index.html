@@ -2,9 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Check the weather data from all around the globe."
+    />
+    <meta
+      name="keywords"
+      content="weather forecast,weather,forecast,wind direction,climate,clouds,meteorology,precipitation"
+    />
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <link rel="canonical" href="https://geoweather.davidhuertas.dev" />
+    <meta name="robots" content="index, nofollow" />
+
+    <title>GeoWeather</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GeoWeather" />
+    <meta
+      property="og:description"
+      content="Check the weather data from all around the globe."
+    />
+    <meta name="image" property="og:image" content="/banner.png" />
+    <meta property="og:url" content="https://geoweather.davidhuertas.dev" />
+    <meta property="og:site_name" content="GeoWeather" />
+    <meta name="author" content="David Huertas" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="GeoWeather" />
+    <meta
+      name="twitter:description"
+      content="Check the weather data from all around the globe."
+    />
+    <meta name="twitter:image" content="/banner.png" />
+    <meta name="twitter:image:alt" content="ALT TEXT FOR IMAGE" />
+    <meta name="twitter:site" content="@USERNAME" />
+    <meta name="twitter:creator" content="@USERNAME" />
     <script>
       window.myCallbackFunc = function () {
         window.initOne && window.initOne()
@@ -23,7 +56,6 @@
         setTimeout(function () {
           var replacers = document.querySelectorAll('[data-replace]')
           for (var i = 0; i < replacers.length; i++) {
-            console.log('hit here2')
             let replaceClasses = JSON.parse(
               replacers[i].dataset.replace.replace(/'/g, '"')
             )
