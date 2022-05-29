@@ -9,19 +9,19 @@ import WindHumData from './WindHumData'
 import { useContext } from 'react'
 
 export default function CurrentDayCard() {
-  const { current, degreeType } = useContext(WeatherContext)
+  const { current, degreeType, forecast } = useContext(WeatherContext)
 
   return (
     <div
       className='relative z-0 grid grid-cols-1 gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3   delay-200 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
       data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
     >
-      <div className='relative border-[3px] bg-white dark:bg-slate-700 dark:border-slate-900 col-span-2 h-96 w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>
+      <div className='relative border-[3px] bg-white dark:bg-slate-700 dark:border-slate-900 col-span-2 h-fit w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>
         <div className='col-start-1 row-start-1'>
           <h3 className='mt-10 text-3xl place-self-start dark:text-gray-100'>
-            {DAY[new Date(current.last_updated).getDay()]}
+            {DAY[new Date(current.last_updated).getDay()] || 'Today'}
           </h3>
-          <h3 className='mb-6 text-xl text-gray-500 dark:text-cardGray'>
+          <h3 className='mb-6 text-md sm:text-xl text-gray-500 dark:text-cardGray'>
             {current.condition?.text}
           </h3>
         </div>
@@ -65,6 +65,22 @@ export default function CurrentDayCard() {
             data={
               degreeType === 'C' ? current.feelslike_c : current.feelslike_f
             }
+          />
+        </div>
+        <div>
+          <WindHumData
+            src='sunrise'
+            title='Sunrise: '
+            text=''
+            data={forecast?.forecastday?.[0].astro.sunrise}
+            newLine
+          />
+          <WindHumData
+            src='sunset'
+            title='Sunset: '
+            text=''
+            data={forecast?.forecastday?.[0].astro.sunset}
+            newLine
           />
         </div>
         <div className='flex flex-col col-start-4 mt-4 place-items-end'>

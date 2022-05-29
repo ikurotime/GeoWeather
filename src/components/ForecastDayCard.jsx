@@ -28,7 +28,7 @@ export default function ForecastDayCard({ active }) {
 
   return (
     <div
-      className='grid grid-cols-1 mb-10 bg-white  dark:bg-slate-700 gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 delay-300 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
+      className='grid grid-cols-1  bg-white  dark:bg-slate-700 gap-y-3 md:gap-y-0 gap-x-0 md:gap-x-3 md:grid-cols-3 delay-300 duration-700 transform opacity-0 transition-all translate-y-12 ease-out'
       data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
     >
       <div className='relative border-[3px] border-cardGray  dark:border-slate-900 col-span-3 h-96 w-full grid grid-cols-2 sm:grid-cols-4 grid-rows-4 justify-center items-center px-5 sm:px-10'>

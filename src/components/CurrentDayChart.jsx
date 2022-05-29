@@ -30,12 +30,6 @@ export default function CurrentDayChart() {
     responsive: true,
     maintainAspectRatio: false,
     aspectRatio: 3,
-    plugins: {
-      legend: {
-        position: 'top',
-        display: true
-      }
-    },
     scales: {
       x: {
         ticks: {
@@ -51,7 +45,7 @@ export default function CurrentDayChart() {
   }
 
   return (
-    <div className='relative chart-container col-span-4 row-start-3 row-span-2'>
+    <div className='relative chart-container col-span-4 row-start-3 row-span-2 h-[85%]'>
       <Line options={options} data={data2} />
     </div>
   )

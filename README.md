@@ -12,6 +12,7 @@ A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built wit
 - Forecast day data by hour
 - Celsius / Farenheit
 - Temperature Chart
+- Dark Mode
 
 ## Installation
 

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 
 import CurrentDayCard from './CurrentDayCard'
+import CurrentHourCard from './CurrentHourCard'
 import ForecastCards from './ForecastCards'
 import ForecastDayCard from './ForecastDayCard'
 import SearchBar from './SearchBar'
@@ -12,7 +13,7 @@ import useDate from '../hooks/useDate'
 export default function MainPanel() {
   const [active, setActive] = useState(0)
   const { time, date } = useDate()
-  const { getWeather, address } = useContext(WeatherContext)
+  const { getWeather, address, forecast } = useContext(WeatherContext)
 
   useEffect(() => {
     getWeather()
@@ -55,6 +56,12 @@ export default function MainPanel() {
           Current Day
         </h2>
         <CurrentDayCard />
+        <div className='whitespace-nowrap overflow-x-auto overflow-y-hidden max-w-[90vw] m-auto '>
+          {forecast?.forecastday?.[0].hour.map((element, index) => (
+            <CurrentHourCard key={index} element={element} />
+          ))}
+        </div>
+
         <h2
           className='my-5 text-3xl delay-300 duration-700 transform opacity-0 transition-all translate-y-12 ease-out dark:text-gray-100'
           data-replace='{ "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
@@ -63,6 +70,11 @@ export default function MainPanel() {
         </h2>
         <ForecastCards active={active} setActive={setActive} />
         <ForecastDayCard active={active} />
+        <div className='whitespace-nowrap overflow-x-auto overflow-y-hidden max-w-[90vw] '>
+          {forecast?.forecastday?.[active].hour.map((element, index) => (
+            <CurrentHourCard key={index} element={element} />
+          ))}
+        </div>
       </div>
     </div>
   )
