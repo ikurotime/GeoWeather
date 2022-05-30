@@ -1,6 +1,6 @@
-import Img from './Img'
-import { WEATHER_CODES } from './Const'
-import { WeatherContext } from '../context/WeatherContextProvider'
+import Img from '../Utils/Img'
+import { WEATHER_CODES } from '../Const'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 import { useContext } from 'react'
 
 export default function CurrentHourCard({ element }) {

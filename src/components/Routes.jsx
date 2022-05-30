@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 
-import Footer from './Footer'
-import Header from './Header'
+import Footer from './HeaderFooter/Footer'
+import Header from './HeaderFooter/Header'
 import Loading from './Loading.jsx'
 import MainPanel from './MainPanel'
 import { WeatherContext } from '../context/WeatherContextProvider'

@@ -1,7 +1,7 @@
-import DownArrow from '../img/DownArrow.png'
-import Temp from '../img/Temp.png'
-import UpArrow from '../img/UpArrow.png'
-import { WeatherContext } from '../context/WeatherContextProvider'
+import DownArrow from '../../img/DownArrow.png'
+import Temp from '../../img/Temp.png'
+import UpArrow from '../../img/UpArrow.png'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 import { useContext } from 'react'
 
 export default function TempsData({ temp, max }) {

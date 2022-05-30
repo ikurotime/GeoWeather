@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 
-import { LABELS } from './Const'
+import { LABELS } from '../Const'
 import { Line } from 'react-chartjs-2'
-import { WeatherContext } from '../context/WeatherContextProvider'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 
 export default function CurrentDayChart() {
   const { degreeType, forecast } = useContext(WeatherContext)

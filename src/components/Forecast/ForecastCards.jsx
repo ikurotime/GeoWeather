@@ -1,9 +1,9 @@
-import { DAY, WEATHER_CODES } from './Const'
+import { DAY, WEATHER_CODES } from '../Const'
 
-import Img from './Img'
-import TempsData from './TempsData'
-import { WeatherContext } from '../context/WeatherContextProvider'
-import WindHumData from './WindHumData'
+import Img from '../Utils/Img'
+import TempsData from '../Utils/TempsData'
+import { WeatherContext } from '../../context/WeatherContextProvider'
+import WindHumData from '../Utils/WindHumData'
 import { useContext } from 'react'
 
 export default function ForecastCards({ active, setActive }) {
@@ -17,7 +17,7 @@ export default function ForecastCards({ active, setActive }) {
       {forecast?.forecastday?.map((day, index) => (
         <div
           key={day.date_epoch}
-          className={`border-[3px] bg-white dark:bg-slate-700 h-44 w-full grid grid-cols-4 grid-rows-2 justify-center items-center p-6 cursor-pointer ${
+          className={`border-[3px] bg-white hover:bg-slate-100 dark:hover:bg-slate-600 dark:bg-slate-700 h-44 w-full grid grid-cols-4 grid-rows-2 justify-center items-center p-6 cursor-pointer ${
             active === index
               ? 'border-black dark:border-cardGray'
               : 'border-cardGray dark:border-slate-900'

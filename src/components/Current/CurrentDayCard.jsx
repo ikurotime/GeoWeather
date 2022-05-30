@@ -1,11 +1,11 @@
-import { DAY, WEATHER_CODES } from './Const'
+import { DAY, WEATHER_CODES } from '../Const'
 
 import CurrentDayChart from './CurrentDayChart'
-import Img from './Img'
-import Map from './Map'
-import Temp from '../img/Temp.png'
-import { WeatherContext } from '../context/WeatherContextProvider'
-import WindHumData from './WindHumData'
+import Img from '../Utils/Img'
+import Map from '../Utils/Map'
+import Temp from '../../img/Temp.png'
+import { WeatherContext } from '../../context/WeatherContextProvider'
+import WindHumData from '../Utils/WindHumData'
 import { useContext } from 'react'
 
 export default function CurrentDayCard() {

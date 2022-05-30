@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 
 import PlacesAutocomplete from 'react-places-autocomplete/dist/PlacesAutocomplete'
-import { WeatherContext } from '../context/WeatherContextProvider'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 
 export default function SearchBar() {
   const [input, setInput] = useState('')

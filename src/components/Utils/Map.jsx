@@ -1,7 +1,7 @@
 import { memo, useContext, useEffect, useState } from 'react'
 
 import { GoogleMap } from '@react-google-maps/api'
-import { WeatherContext } from '../context/WeatherContextProvider'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 
 function Map({ className }) {
   const { location, searchWeatherByLatLng } = useContext(WeatherContext)

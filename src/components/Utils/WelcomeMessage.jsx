@@ -1,4 +1,4 @@
-import sunImage from '../img/Sunny.svg'
+import sunImage from '../../img/Sunny.svg'
 export default function WelcomeMessage() {
   return (
     <div

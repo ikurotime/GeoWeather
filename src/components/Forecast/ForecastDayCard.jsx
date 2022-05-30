@@ -1,11 +1,11 @@
-import { DAY, WEATHER_CODES } from './Const'
+import { DAY, WEATHER_CODES } from '../Const'
 import { useContext, useEffect, useState } from 'react'
 
-import ForecastDayChart from './ForecastDayChart'
-import Img from './Img'
-import Temp from '../img/Temp.png'
-import { WeatherContext } from '../context/WeatherContextProvider'
-import WindHumData from './WindHumData'
+import { ForecastDayChart } from '../Forecast'
+import { Img } from '../Utils'
+import Temp from '../../img/Temp.png'
+import { WeatherContext } from '../../context/WeatherContextProvider'
+import WindHumData from '../Utils/WindHumData'
 
 export default function ForecastDayCard({ active }) {
   const { forecast, degreeType } = useContext(WeatherContext)

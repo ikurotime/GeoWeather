@@ -1,4 +1,4 @@
-import useImage from '../hooks/useImage'
+import useImage from '../../hooks/useImage'
 
 export default function Img({ className, src, alt, width, height }) {
   const { image } = useImage(src)

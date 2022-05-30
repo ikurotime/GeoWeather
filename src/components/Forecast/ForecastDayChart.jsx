@@ -1,4 +1,4 @@
-import { LABELS } from './Const'
+import { LABELS } from '../Const'
 import { Line } from 'react-chartjs-2'
 
 export default function ForecastDayChart({ data }) {

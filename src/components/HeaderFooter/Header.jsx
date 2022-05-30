@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 
-import { WeatherContext } from '../context/WeatherContextProvider'
+import { WeatherContext } from '../../context/WeatherContextProvider'
 
 export default function Header() {
   const { degreeType, changeDegreeType } = useContext(WeatherContext)

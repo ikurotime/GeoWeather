@@ -1,12 +1,9 @@
+import { CurrentDayCard, CurrentHourCard } from './Current'
+import { ForecastCards, ForecastDayCard } from '../components/Forecast'
+import { SearchBar, WelcomeMessage } from '../components/Utils'
 import { useContext, useEffect, useState } from 'react'
 
-import CurrentDayCard from './CurrentDayCard'
-import CurrentHourCard from './CurrentHourCard'
-import ForecastCards from './ForecastCards'
-import ForecastDayCard from './ForecastDayCard'
-import SearchBar from './SearchBar'
 import { WeatherContext } from '../context/WeatherContextProvider'
-import WelcomeMessage from './WelcomeMessage'
 import locationImage from '../img/location.png'
 import useDate from '../hooks/useDate'
 
