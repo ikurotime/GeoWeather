@@ -19,29 +19,25 @@ const initialState = {
 export default function WeatherContextProvider(props) {
   const [state, dispatch] = useReducer(WeatherReducer, initialState)
 
-  const getWeather = async () => {
-    const url = 'https://geolocation-db.com/json/'
-    await fetch(url)
+  const getWeather = async (location) => {
+    const { latitude, longitude } = location
+
+    dispatch({ type: 'SET_COORDS', payload: location })
+    const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude}%2C${longitude}&days=3`
+    // const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${IPv4}&days=3`
+    fetch(url, OPTIONS)
       .then((res) => res.json())
       .then((data) => {
-        const { latitude, longitude, IPv4 } = data
-        dispatch({ type: 'SET_COORDS', payload: { latitude, longitude } })
-        // const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude}%2C${longitude}&days=3`
-        const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${IPv4}&days=3`
-        fetch(url, OPTIONS)
-          .then((res) => res.json())
-          .then((data) => {
-            dispatch({
-              type: 'GET_WEATHER',
-              payload: data
-            })
-            const { location } = data
-            const { name, region, country } = location
-            dispatch({
-              type: 'CHANGE_ADDRESS',
-              payload: `${name}, ${region}, ${country}`
-            })
-          })
+        dispatch({
+          type: 'GET_WEATHER',
+          payload: data
+        })
+        const { location } = data
+        const { name, region, country } = location
+        dispatch({
+          type: 'CHANGE_ADDRESS',
+          payload: `${name}, ${region}, ${country}`
+        })
       })
   }
   const searchWeather = ({ newAddress }) => {

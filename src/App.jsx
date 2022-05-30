@@ -8,9 +8,7 @@ import {
   Tooltip
 } from 'chart.js'
 
-import Footer from './components/Footer'
-import Header from './components/Header'
-import MainPanel from './components/MainPanel'
+import Routes from './components/Routes'
 import WeatherContextProvider from './context/WeatherContextProvider'
 
 function App() {
@@ -22,11 +20,10 @@ function App() {
     Title,
     Tooltip
   )
+
   return (
     <WeatherContextProvider>
-      <Header />
-      <MainPanel />
-      <Footer />
+      <Routes />
     </WeatherContextProvider>
   )
 }
