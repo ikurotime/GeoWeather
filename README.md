@@ -27,7 +27,7 @@ Install GeoWeather
 ```
 
 - Go to `index.html`
-- Replace the API Key from Google Maps API with your key, availible [here](https://mapsplatform.google.com/intl/es-419_ALL/)
+- Replace the API Key from Google Maps API with your key, available [here](https://mapsplatform.google.com/intl/es-419_ALL/)
 
 ```
 <script async
