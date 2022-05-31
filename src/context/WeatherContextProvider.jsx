@@ -107,8 +107,6 @@ export default function WeatherContextProvider(props) {
     }
   }
   const refreshWeather = ({ address }) => {
-    console.log('refreshWeather', address)
-
     const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${address}&days=3`
     try {
       fetch(url, OPTIONS)

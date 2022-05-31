@@ -18,7 +18,6 @@ const useCurrentLocation = (options = {}) => {
 
   // Error handler for geolocation's `getCurrentPosition` method
   const handleError = (error) => {
-    console.log(error.message)
     setError(error.message)
   }
 

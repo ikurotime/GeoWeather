@@ -16,7 +16,6 @@ export default function Routes() {
     if (location !== undefined) {
       getWeather(location)
     }
-    console.log(location)
   }, [location])
   return location ? (
     <>
