@@ -1,8 +1,14 @@
 # GeoWeather
 
+![GeoWeather Banner](public/banner.png)
+
 A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built with React.
 
-## Features
+## Go to:
+  - [Features](https://github.com/ikurotime/GeoWeather/edit/master/README.md#features-)
+  - [Installation](https://github.com/ikurotime/GeoWeather/edit/master/README.md#features-)
+
+## Features ✨
 
 - Autocomplete search
 - Map
@@ -14,7 +20,7 @@ A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built wit
 - Temperature Chart
 - Dark Mode
 
-## Installation
+## Installation 🔧
 
 Install GeoWeather
 
