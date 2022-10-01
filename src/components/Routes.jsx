@@ -1,29 +1,31 @@
 import { useContext, useEffect } from 'react'
 
+import { WeatherContext } from '../context/WeatherContextProvider'
+import useCurrentLocation from '../hooks/useCurrentLocation'
+import { DEFAULT_LOCATIONS, geolocationOptions } from './Const'
 import Footer from './HeaderFooter/Footer'
 import Header from './HeaderFooter/Header'
-import Loading from './Loading.jsx'
 import MainPanel from './MainPanel'
-import { WeatherContext } from '../context/WeatherContextProvider'
-import { geolocationOptions } from './Const'
-import useCurrentLocation from '../hooks/useCurrentLocation'
 
 export default function Routes() {
-  const { location, error } = useCurrentLocation(geolocationOptions)
+  const { location } = useCurrentLocation(geolocationOptions)
   const { getWeather } = useContext(WeatherContext)
 
   useEffect(() => {
     if (location !== undefined) {
       getWeather(location)
+    } else {
+      getWeather(
+        DEFAULT_LOCATIONS[Math.floor(Math.random() * DEFAULT_LOCATIONS.length)]
+      )
     }
   }, [location])
-  return location ? (
+
+  return (
     <>
       <Header />
       <MainPanel />
       <Footer />
     </>
-  ) : (
-    <Loading error={error} />
   )
 }

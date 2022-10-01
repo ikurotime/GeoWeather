@@ -24,8 +24,10 @@ export default function WeatherContextProvider(props) {
 
     dispatch({ type: 'SET_COORDS', payload: location })
     const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude}%2C${longitude}&days=3`
+    const defaultUrl =
+      'https://weatherapi-com.p.rapidapi.com/forecast.json?q=London&days=3'
     // const url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${IPv4}&days=3`
-    fetch(url, OPTIONS)
+    fetch(location == null ? defaultUrl : url, OPTIONS)
       .then((res) => res.json())
       .then((data) => {
         dispatch({
