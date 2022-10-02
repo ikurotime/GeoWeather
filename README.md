@@ -3,9 +3,11 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+![GeoWeather Banner](public/readme-banner.png)
+
 A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built with React.
 
-## Features
+## Features ✨
 
 - Autocomplete search
 - Map
@@ -17,7 +19,7 @@ A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built wit
 - Temperature Chart
 - Dark Mode
 
-## Installation
+## Installation 🔧
 
 Install GeoWeather
 
