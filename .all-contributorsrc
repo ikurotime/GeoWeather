@@ -14,6 +14,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nebocoder",
+      "name": "Nemanja",
+      "avatar_url": "https://avatars.githubusercontent.com/u/91620216?v=4",
+      "profile": "https://github.com/nebocoder",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
