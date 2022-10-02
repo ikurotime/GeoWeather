@@ -1,6 +1,6 @@
 # GeoWeather
 
-![GeoWeather Banner](public/banner.png)
+![GeoWeather Banner](public/readme-banner.png)
 
 A weather app for [Midudev](https://www.twitch.tv/midudev)'s Hackathon built with React.
 
