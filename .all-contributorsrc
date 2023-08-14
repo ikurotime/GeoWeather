@@ -23,6 +23,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "carlosfernandezcabrero",
+      "name": "Carlos Fernandez Cabrero",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56631428?v=4",
+      "profile": "https://es.linkedin.com/in/carlos-fern%C3%A1ndez-cabrero-08638a188",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -30,5 +39,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "projectName": "GeoWeather",
-  "projectOwner": "ikurotime"
+  "projectOwner": "ikurotime",
+  "commitType": "docs"
 }
